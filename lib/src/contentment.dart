@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'feedback.dart';
-
+import 'interactivepage.dart';
 class ContentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -84,14 +84,28 @@ class ContentPage extends StatelessWidget {
                 ),
                 // Back Button
                 Positioned(
-                  top: 3,
-                  left: 3,
+                  top: 12,
+                  left:14,
                   child: CircleAvatar(
                     backgroundColor: Color.fromRGBO(225, 163, 8, 0.25),
                     radius: 20,
-                    child: Icon(
-                      Icons.arrow_back,
-                      color: Colors.black,
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        IconButton(
+                          icon: Icon(
+                            Icons.arrow_back,
+                            color: Colors.black,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ImageSliderApp()),
+                            );
+                          },
+
+                        ),
+                      ],
                     ),
                   ),
                 ),

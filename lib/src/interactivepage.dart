@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'contentment.dart';
+import 'login.dart';
 
 class ImageSliderApp extends StatelessWidget {
   @override
@@ -31,15 +31,29 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
     // Add more image paths as necessary
   ];
 
+  bool showFirstCharacter = true;
+  bool showSecondCharacter = false;
+
   @override
   void initState() {
     super.initState();
+
+    // First part of initState()
+    Future.delayed(Duration(seconds: 3), () {
+      setState(() {
+        showFirstCharacter = false;
+        showSecondCharacter = true;
+      });
+    });
+
+    // Second part of initState()
     _pageController.addListener(() {
       setState(() {
         _currentPage = _pageController.page!.round();
       });
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +73,6 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
               ),
             ),
           ),
-
           Positioned(
             top: 650,
             child: Container(
@@ -72,34 +85,38 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(bottom: 350),
+            padding: EdgeInsets.only(bottom: 350, left: 30, right: 30),
             child: Center(
-              child: Container(
-                height: 200,
-                child: PageView.builder(
-                  controller: _pageController,
-                  itemCount: _images.length,
-                  itemBuilder: (context, index) {
-                    return Positioned(
-                      top: -8,
-                      left: 36 + (index * 70),
-                      child: ClipRRect(
-                        child: Image.asset(
-                          _images[index],
-                          width: 219,
-                          height: 119,
-                          fit: BoxFit.cover,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  height: 210,
+                  child: PageView.builder(
+                    controller: _pageController,
+                    itemCount: _images.length,
+                    itemBuilder: (context, index) {
+                      return Positioned(
+                        top: -8,
+                        left: 36 + (index * 70),
+                        child: ClipRRect(
+                          child: Image.asset(
+                            _images[index],
+                            width: 219,
+                            height: 119,
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
           ),
+
           Positioned(
             bottom: 95,
-            left: 0,
+            left: 30,
             right: 0,
             child: Container(
               alignment: Alignment.bottomCenter,
@@ -147,9 +164,9 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
           ),
           Positioned(
             top: 760,
-            left: 98,
+            left: 78,
             child: Container(
-              width: 260,
+              width: 290,
               height: 50,
               child: Text(
                 'We are here to make your experience unforgettable. Could you please answer a few questions?',
@@ -164,8 +181,8 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
             ),
           ),
           Positioned(
-            top: 3,
-            left: 3,
+            top: 12,
+            left: 14,
             child: CircleAvatar(
               backgroundColor: Color.fromRGBO(225, 163, 8, 0.25),
               radius: 20,
@@ -178,35 +195,71 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
                       color: Colors.black,
                     ),
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      );
                     },
+
                   ),
                 ],
               ),
             ),
           ),
-          Positioned(
-            top: 425,
-            left: 45,
-            child: Container(
-              width: 311,
-              height: 75.22,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(18),
-                color: Color.fromRGBO(114, 131, 141, 1.0),
-              ),
-              child: Center(
-                child: Text(
-                  'Welcome to Chitharal rock cut temple!',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+          if (showFirstCharacter)
+            Positioned(
+              top: 340,
+              left: -40,
+              child: Stack(
+                children: [
+                  Image.asset(
+                    'assets/box.png',
+                    width: 350,
+                    height: 170.22,
+                    fit: BoxFit.cover,
                   ),
-                ),
+                  Positioned(
+                    top: 105, // Adjust this value to position the text vertically
+                    left: 60, // Adjust this value to position the text horizontally
+                    child: Text(
+                      'Your Text Here ',
+                      style: TextStyle(
+                        color: Colors.white, // Adjust the color as needed
+                        fontSize: 10, // Adjust the font size as needed
+                        fontWeight: FontWeight.bold, // Adjust the font weight as needed
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ),
+          if (showSecondCharacter)
+            Positioned(
+              top: 340,
+              left: 70,
+              child: Stack(
+                children: [
+                  Image.asset(
+                    'assets/box2.png',
+                    width: 350,
+                    height: 170.22,
+                    fit: BoxFit.cover,
+                  ),
+                  Positioned(
+                    top: 105, // Adjust this value to position the text vertically
+                    left: 65, // Adjust this value to position the text horizontally
+                    child: Text(
+                      'Second Character  ',
+                      style: TextStyle(
+                        color: Colors.white, // Adjust the color as needed
+                        fontSize: 10, // Adjust the font size as needed
+                        fontWeight: FontWeight.bold, // Adjust the font weight as needed
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           Positioned(
             top: 58,
             left: 50,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'submit.dart';
+import 'contentment.dart';
 
 class RatingScreen extends StatefulWidget {
   @override
@@ -44,6 +45,32 @@ class _RatingScreenState extends State<RatingScreen> {
                     fontWeight: FontWeight.w600,
                     color: Colors.black,
                   ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 12,
+              left:14,
+              child: CircleAvatar(
+                backgroundColor: Color.fromRGBO(225, 163, 8, 0.25),
+                radius: 20,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: Colors.black,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ContentPage()),
+                        );
+                      },
+
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -100,11 +127,12 @@ class _RatingScreenState extends State<RatingScreen> {
                 height: 40,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(32),
-                  color: Color(0xFFE1A308),
+                  color: Color.fromRGBO(225, 163, 8, 0.75),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: DropdownButton<String>(
+                    dropdownColor: Color.fromRGBO(225, 163, 8, 0.75), // Set the background color of dropdown menu
                     isExpanded: true,
                     underline: SizedBox(),
                     icon: Icon(Icons.arrow_drop_down),
@@ -126,7 +154,7 @@ class _RatingScreenState extends State<RatingScreen> {
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 18,
-                            color: Colors.black,
+                            color: Colors.white, // Set the text color to white
                           ),
                         ),
                       );
@@ -135,6 +163,9 @@ class _RatingScreenState extends State<RatingScreen> {
                 ),
               ),
             ),
+
+
+
             Positioned(
               left: 30,
               top: 350,
