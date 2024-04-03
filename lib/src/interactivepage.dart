@@ -34,65 +34,72 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
   bool showFirstCharacter = true;
   bool showSecondCharacter = false;
 
+  String firstCharacterText = "Hey, have you heard about the Chitharal \n Jain Rock Cut Temple in Kanyakumari?";
+  String secondCharacterText = "Yeah, I know about it.\n It's a temple carved out of a huge rock, right?";
+
   @override
   void initState() {
     super.initState();
 
     // First part of initState()
+
     Future.delayed(Duration(seconds: 3), () {
       setState(() {
         showFirstCharacter = false;
         showSecondCharacter = true;
+        if (showSecondCharacter) {
+          firstCharacterText = "That's the one! Do you know how old it is?";
+        }
       });
     });
     Future.delayed(Duration(seconds: 6), () {
       setState(() {
         showFirstCharacter = true;
         showSecondCharacter = false;
+        if (showFirstCharacter) {
+          secondCharacterText = "it is really old, like from the 9th century AD";
+        }
       });
     });
     Future.delayed(Duration(seconds: 9), () {
       setState(() {
         showFirstCharacter = false;
         showSecondCharacter = true;
+        if (showSecondCharacter) {
+          firstCharacterText = "What makes it special?";
+        }
       });
     });
     Future.delayed(Duration(seconds: 12), () {
       setState(() {
         showFirstCharacter = true;
         showSecondCharacter = false;
+        if (showFirstCharacter) {
+          secondCharacterText = "It's one of the few Jain temples in Tamil Nadu,\n so it's pretty unique.";
+        }
       });
     });
     Future.delayed(Duration(seconds: 15), () {
       setState(() {
         showFirstCharacter = false;
         showSecondCharacter = true;
+        if (showSecondCharacter) {
+          firstCharacterText = " I'm thinking of visiting.\n Anything I should keep in mind?";
+        }
       });
     });
     Future.delayed(Duration(seconds: 18), () {
       setState(() {
         showFirstCharacter = true;
         showSecondCharacter = false;
+        if (showFirstCharacter) {
+          secondCharacterText = "okk";
+        }
       });
     });
-    Future.delayed(Duration(seconds: 21), () {
-      setState(() {
-        showFirstCharacter = false;
-        showSecondCharacter = true;
-      });
-    });
-    Future.delayed(Duration(seconds: 25), () {
-      setState(() {
-        showFirstCharacter = true;
-        showSecondCharacter = false;
-      });
-    });
-    Future.delayed(Duration(seconds: 27), () {
-      setState(() {
-        showFirstCharacter = false;
-        showSecondCharacter = true;
-      });
-    });
+
+
+
     // Second part of initState()
     _pageController.addListener(() {
       setState(() {
@@ -269,7 +276,7 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
                     top: 105, // Adjust this value to position the text vertically
                     left: 60, // Adjust this value to position the text horizontally
                     child: Text(
-                      'Your Text Here ',
+                      firstCharacterText,
                       style: TextStyle(
                         color: Colors.white, // Adjust the color as needed
                         fontSize: 10, // Adjust the font size as needed
@@ -296,7 +303,7 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
                     top: 105, // Adjust this value to position the text vertically
                     left: 65, // Adjust this value to position the text horizontally
                     child: Text(
-                      'Second Character  ',
+                      secondCharacterText,
                       style: TextStyle(
                         color: Colors.white, // Adjust the color as needed
                         fontSize: 10, // Adjust the font size as needed
