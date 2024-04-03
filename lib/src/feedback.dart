@@ -3,6 +3,8 @@ import 'submit.dart';
 import 'contentment.dart';
 
 class RatingScreen extends StatefulWidget {
+  const RatingScreen({super.key});
+
   @override
   _RatingScreenState createState() => _RatingScreenState();
 }
@@ -37,7 +39,7 @@ class _RatingScreenState extends State<RatingScreen> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(4),
                 ),
-                child: Text(
+                child: const Text(
                   'Feedback',
                   style: TextStyle(
                     fontFamily: 'Poppins',

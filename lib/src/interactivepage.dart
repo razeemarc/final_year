@@ -45,7 +45,54 @@ class _ImageSliderScreenState extends State<ImageSliderScreen> {
         showSecondCharacter = true;
       });
     });
-
+    Future.delayed(Duration(seconds: 6), () {
+      setState(() {
+        showFirstCharacter = true;
+        showSecondCharacter = false;
+      });
+    });
+    Future.delayed(Duration(seconds: 9), () {
+      setState(() {
+        showFirstCharacter = false;
+        showSecondCharacter = true;
+      });
+    });
+    Future.delayed(Duration(seconds: 12), () {
+      setState(() {
+        showFirstCharacter = true;
+        showSecondCharacter = false;
+      });
+    });
+    Future.delayed(Duration(seconds: 15), () {
+      setState(() {
+        showFirstCharacter = false;
+        showSecondCharacter = true;
+      });
+    });
+    Future.delayed(Duration(seconds: 18), () {
+      setState(() {
+        showFirstCharacter = true;
+        showSecondCharacter = false;
+      });
+    });
+    Future.delayed(Duration(seconds: 21), () {
+      setState(() {
+        showFirstCharacter = false;
+        showSecondCharacter = true;
+      });
+    });
+    Future.delayed(Duration(seconds: 25), () {
+      setState(() {
+        showFirstCharacter = true;
+        showSecondCharacter = false;
+      });
+    });
+    Future.delayed(Duration(seconds: 27), () {
+      setState(() {
+        showFirstCharacter = false;
+        showSecondCharacter = true;
+      });
+    });
     // Second part of initState()
     _pageController.addListener(() {
       setState(() {

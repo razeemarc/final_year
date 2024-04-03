@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'feedback.dart';
 import 'interactivepage.dart';
 class ContentPage extends StatelessWidget {
+  const ContentPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,9 +28,9 @@ class ContentPage extends StatelessWidget {
                     height: 40,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(32),
-                      color: Color.fromRGBO(225, 163, 8, 0.75),
+                      color: const Color.fromRGBO(225, 163, 8, 0.75),
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'Historical Contents Of Chittaral',
                         style: TextStyle(
@@ -48,7 +50,7 @@ class ContentPage extends StatelessWidget {
                     height: 219,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      image: DecorationImage(
+                      image: const DecorationImage(
                         image: AssetImage('assets/img1.jpg'),
                         fit: BoxFit.cover,
                       ),
@@ -63,12 +65,12 @@ class ContentPage extends StatelessWidget {
                   child: Container(
                     width: 400,
                     height: 680,
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: Color.fromRGBO(249, 246, 246, 0.9),
+                      color: const Color.fromRGBO(249, 246, 246, 0.9),
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: SingleChildScrollView(
+                    child: const SingleChildScrollView(
                       child: Text(
                         '               Chittaral, also known as Chittaral Rock Cut Temple, is a historically significant site located in Chittaral village near the town of Kanyakumari in Tamil Nadu, India. The primary attraction of this site is its rock-cut sculptures dating back to the 8th century AD. Chittaral is renowned for its Jain rock-cut sculptures, which are believed to have been created during the Pandyan dynasty rule. These sculptures depict various Jain Tirthankaras and deities, including Mahavira, Parshvanatha, and Bahubali. The exact dating of the sculptures is uncertain, but they are generally believed to date back to around the 8th century AD.',
                         style: TextStyle(
@@ -87,13 +89,13 @@ class ContentPage extends StatelessWidget {
                   top: 12,
                   left:14,
                   child: CircleAvatar(
-                    backgroundColor: Color.fromRGBO(225, 163, 8, 0.25),
+                    backgroundColor: const Color.fromRGBO(225, 163, 8, 0.25),
                     radius: 20,
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
                         IconButton(
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.arrow_back,
                             color: Colors.black,
                           ),
